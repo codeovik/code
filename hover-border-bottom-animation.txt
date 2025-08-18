@@ -1,0 +1,21 @@
+// html
+<h2>
+  <span>
+    This is a multi-line animated underline text example.  
+    When you hover, the underline will animate smoothly under the entire block.
+  </span>
+</h2>
+
+
+// css
+span {
+  display: inline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  transition: background-size 0.4s ease;
+}
+h2:hover span {
+  background-size: 100% 2px;
+}
