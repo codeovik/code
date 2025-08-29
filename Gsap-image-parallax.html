@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GSAP Blog Card Scroll Animation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+
+  <div class="h-[80vh] flex items-center justify-center text-gray-400">
+    Scroll Down
+  </div>
+
+  <article class="max-w-2xl mx-auto mb-6 bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+    <div class="relative overflow-hidden h-80">
+      <img
+        src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-7.jpg"
+        alt="Blog image"
+        class="w-full h-[120%] object-cover transform will-change-transform"
+        loading="lazy"
+      />
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold mb-2">Parallax Blog Card</h3>
+      <p class="text-gray-400">GSAP ScrollTrigger দিয়ে শুধু Y-axis parallax effect।</p>
+    </div>
+  </article>
+
+  <div class="h-[80vh] flex items-center justify-center text-gray-400">
+    Keep Scrolling
+  </div>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("article img", {
+      y: -80, // শুধু Y-axis parallax
+      ease: "none",
+      scrollTrigger: {
+        trigger: "article",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  </script>
+</body>
+</html>
