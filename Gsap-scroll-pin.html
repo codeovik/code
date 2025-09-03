@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Feature Project Section</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    header, footer {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      background: #222;
+    }
+
+    section.feature-projects {
+      display: flex;
+      align-items: flex-start;
+      padding: 50px;
+      box-sizing: border-box;
+      background: #111;
+    }
+
+    /* Left side - New parent container for pinning */
+    .pin-container {
+      width: 40%;
+      position: relative;
+    }
+    
+    .left {
+      width: 100%; /* Take full width of its parent */
+      padding: 20px;
+      min-height: 100vh;
+      position: sticky; /* Uses sticky for pinning behavior */
+      top: 0;
+    }
+
+    .left h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Right side */
+    .right {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .right img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>🔝 This is the Top Section (Before Projects)</div>
+  </header>
+
+  <section class="feature-projects">
+    <div class="pin-container">
+      <div class="left">
+        <h2>Feature Projects</h2>
+        <p>Scroll down to explore all featured projects. The text will stay pinned on the left side while images scroll on the right side.</p>
+      </div>
+    </div>
+
+    <div class="right">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-1.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-2.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-3.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-4.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-5.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-6.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-7.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-8.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-9.jpg" alt="">
+      <img src="https://raw.githubusercontent.com/codeovik/i/refs/heads/main/anime-10.jpg" alt="">
+    </div>
+  </section>
+
+  <footer>
+    <div>⬇️ This is the Bottom Section (After Projects)</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.create({
+      trigger: ".feature-projects",
+      start: "top top",
+      end: "bottom bottom",
+      pin: ".pin-container",
+      pinSpacing: false /* ✅ Changed to false to prevent layout changes */
+    });
+  </script>
+
+</body>
+</html>
